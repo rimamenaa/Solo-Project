@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+	<title>Sudoku</title>
+</head>
+<body>
+	<h1>Sudoku Game</h1>
+
+	<!-- Theme buttons -->
+	<div id="theme">
+		<input id = "dark" type="radio" name="theme"> <span> Dark</span>
+		<input id = "light" type="radio" name="theme" checked> <span> Light</span>
+	</div>
+
+	<!-- Result -->	
+	 <div class="alert success">
+          <strong>Good Job, YOU WON!</strong>
+     </div>	 
+     <div class="alert lost">
+          <strong>YOU LOST!</strong>
+     </div>
+
+     <!-- The numbers board -->
+	<table>
+		<tr>
+			<td><input class="num" id ="miniBox1" type="number" value="4" readonly min="1" max="9"></td>
+			<td><input class="num" id ="miniBox2" type="number" value="3" readonly min="1" max="9"></td>
+			<td><input class="num seperator2" id ="miniBox3" value="5" readonly type="number" min="1" max="9"></td>
+			<td><input class="num" id ="miniBox4" type="number" min="1" max="9"></td>
+			<td><input class="num" id ="miniBox5" type="number"  min="1" max="9"></td>
+			<td><input class="num seperator3" id ="miniBox6" type="number" min="1" max="9"></td>
+			<td><input class="num" id ="miniBox7" type="number" value="6" readonly min="1" max="9"></td>
+			<td><input class="num" id ="miniBox8" type="number" value="9" readonly min="1" max="9"></td>
+			<td><input class="num" id ="miniBox9" type="number" min="1" max="9"></td>
+		</tr>	
+		<tr>
+			<td><input class="num" id ="miniBox10" type="number" min="1" max="9"></td>
+			<td><input class="num" id ="miniBox11" type="number" value="7" readonly min="1" max="9"></td>
+			<td><input class="num seperator2" id ="miniBox12" type="number" min="1" max="9"></td>
+			<td><input class="num" id ="miniBox13" type="number" value="3" readonly min="1" max="9"></td>
+			<td><input class="num" id ="miniBox14" type="number" min="1" max="9"></td>
+			<td><input class="num seperator3" id ="miniBox15" type="number" value="9" readonly min="1" max="9"></td>
+			<td><input class="num" id ="miniBox16" type="number" value="1" readonly min="1" max="9"></td>
+			<td><input class="num" id ="miniBox17" type="number" min="1" max="9"></td>
+			<td><input class="num" id ="miniBox18" type="number" value="5" readonly min="1" max="9"></td>
+		</tr>	
+		<tr id="seperator">
+			<td><input class="num" id ="miniBox19" type="number" min="1" max="9"></td>
+			<td><input class="num" id ="miniBox20" type="number" min="1" max="9"></td>
+			<td><input class="num seperator2"  id ="miniBox21" type="number" value="1" readonly min="1" max="9"></td>
+			<td><input class="num" id ="miniBox22" type="number" min="1" max="9"></td>
+			<td><input class="num" id ="miniBox23" type="number" value="5" readonly min="1" max="9"></td>
+			<td><input class="num seperator3" id ="miniBox24" type="number" min="1" max="9"></td>
+			<td><input class="num" id ="miniBox25" type="number" value="3" readonly min="1" max="9"></td>
+			<td><input class="num" id ="miniBox26" type="number" min="1" max="9"></td>
+			<td><input class="num" id ="miniBox27" type="number" value="7" readonly min="1" max="9"></td>
+		</tr>	
+		<tr>
+			<td><input class="num" id ="miniBox28" type="number" min="1" max="9"></td>
+			<td><input class="num" id ="miniBox29" type="number" min="1" max="9"></td>
+			<td><input class="num seperator2" id ="miniBox30" type="number" value="3" readonly min="1" max="9"></td>
+			<td><input class="num" id ="miniBox31" type="number"  value="4" readonly min="1" max="9"></td>
+			<td><input class="num" id ="miniBox32" type="number" value="2" readonly min="1" max="9"></td>
+			<td><input class="num seperator3" id ="miniBox33" type="number" min="1" max="9"></td>
+			<td><input class="num" id ="miniBox34" type="number" value="8" readonly min="1" max="9"></td>
+			<td><input class="num" id ="miniBox35" type="number" min="1" max="9"></td>
+			<td><input class="num" id ="miniBox36" type="number" min="1" max="9"></td>
+		</tr>	
+		<tr>
+			<td><input class="num" id ="miniBox37" type="number" value="8" readonly min="1" max="9"></td>
+			<td><input class="num" id ="miniBox38" type="number" value="6" readonly min="1" max="9"></td>
+			<td><input class="num seperator2" id ="miniBox39" type="number" min="1" max="9"></td>
+			<td><input class="num" id ="miniBox40" type="number" value="9" readonly min="1" max="9"></td>
+			<td><input class="num" id ="miniBox41" type="number" min="1" max="9"></td>
+			<td><input class="num seperator3" id ="miniBox42" type="number" min="1" max="9"></td>
+			<td><input class="num" id ="miniBox43" type="number" min="1" max="9"></td>
+			<td><input class="num" id ="miniBox44" type="number" min="1" max="9"></td>
+			<td><input class="num" id ="miniBox45" type="number" value="4" readonly min="1" max="9"></td>
+		</tr>	
+		<tr id="seperator">
+			<td><input class="num" id ="miniBox46" type="number" value="5" readonly min="1" max="9"></td>
+			<td><input class="num" id ="miniBox47" type="number" min="1" max="9"></td>
+			<td><input class="num seperator2"  id ="miniBox48" type="number" value="4" readonly min="1" max="9"></td>
+			<td><input class="num" id ="miniBox49" type="number" min="1" max="9"></td>
+			<td><input class="num" id ="miniBox50" type="number" min="1" max="9"></td>
+			<td><input class="num seperator3" id ="miniBox51" type="number" value="3" readonly min="1" max="9"></td>
+			<td><input class="num" id ="miniBox52" type="number" min="1" max="9"></td>
+			<td><input class="num" id ="miniBox53" type="number" value="1" readonly min="1" max="9"></td>
+			<td><input class="num" id ="miniBox54" type="number" min="1" max="9"></td>
+		</tr>	
+		<tr>
+			<td><input class="num" id ="miniBox55" type="number" value="7" readonly min="1" max="9"></td>
+			<td><input class="num" id ="miniBox56" type="number" value="4" readonly min="1" max="9"></td>
+			<td><input class="num seperator2"  id ="miniBox57" type="number" min="1" max="9"></td>
+			<td><input class="num" id ="miniBox58" type="number" value="1" readonly min="1" max="9"></td>
+			<td><input class="num" id ="miniBox59" type="number" value="3" readonly min="1" max="9"></td>
+			<td><input class="num seperator3" id ="miniBox60" type="number" min="1" max="9"></td>
+			<td><input class="num" id ="miniBox61" type="number" min="1" max="9"></td>
+			<td><input class="num" id ="miniBox62" type="number" min="1" max="9"></td>
+			<td><input class="num" id ="miniBox63" type="number" min="1" max="9"></td>
+		</tr>	
+		<tr>
+			<td><input class="num" id ="miniBox64" type="number" value="6" readonly min="1" max="9"></td>
+			<td><input class="num" id ="miniBox65" type="number" value="1" readonly min="1" max="9"></td>
+			<td><input class="num seperator2" id ="miniBox66" type="number" min="1" max="9"></td>
+			<td><input class="num" id ="miniBox67" type="number" value="5" readonly min="1" max="9"></td>
+			<td><input class="num" id ="miniBox68" type="number" value="9" readonly min="1" max="9"></td>
+			<td><input class="num seperator3" id ="miniBox69" type="number" min="1" max="9"></td>
+			<td><input class="num" id ="miniBox70" type="number" min="1" max="9"></td>
+			<td><input class="num" id ="miniBox71" type="number" min="1" max="9"></td>
+			<td><input class="num" id ="miniBox72" type="number" min="1" max="9"></td>
+		</tr>
+		<tr>
+			<td><input class="num" id ="miniBox73" type="number" min="1" max="9"></td>
+			<td><input class="num" id ="miniBox74" type="number" min="1" max="9"></td>
+			<td><input class="num seperator2" id ="miniBox75" type="number" value="8" readonly min="1" max="9"></td>
+			<td><input class="num" id ="miniBox76" type="number" min="1" max="9"></td>
+			<td><input class="num" id ="miniBox77" type="number" value="6" readonly min="1" max="9"></td>
+			<td><input class="num seperator3" id ="miniBox78" type="number" value="4" readonly min="1" max="9"></td>
+			<td><input class="num" id ="miniBox79" type="number" min="1" max="9"></td>
+			<td><input class="num" id ="miniBox80" type="number" min="1" max="9"></td>
+			<td><input class="num" id ="miniBox81" type="number" value="1" readonly min="1" max="9"></td>
+		</tr>
+	</table>
+
+  <!-- 'Submit' and 'try again' buttons -->
+  <button class="btn">Submit</button>
+  <button class="btn" onclick="location.reload();">Try Again</button>
+<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
